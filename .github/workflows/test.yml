@@ -1,0 +1,77 @@
+name: Build and test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+# The whole purpose of this is to ensure that:
+# 1. The code is linted
+# 2. The unit tests all pass (not to generate a report)
+# 3. The build is successful
+# On all pull requests and main branch pushes
+
+# This does continue if there are errors, so that way you can see multiple failures in one run + caching
+# The final check is to ensure that the build is successful before giving a final thumbs up
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+
+    container:
+      image: node:20.11.0-bullseye-slim
+
+    steps:
+      # Setup:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Restore cache
+        id: cache-deps
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-dependencies-${{ hashFiles('**/yarn.lock') }}
+
+      # Install dependencies & make assets:
+      - name: Install dependencies
+        id: install
+        if: steps.cache-deps.outputs.cache-hit != 'true'
+        run: yarn install
+
+      - name: Ensure eslint
+        id: lint
+        run: yarn lint
+        continue-on-error: true
+
+      # Testing:
+      - name: Run unit tests
+        id: test
+        run: yarn test
+        continue-on-error: true
+
+      # Typescript checking
+      - name: Check types
+        id: typescript
+        run: yarn tsc --noEmit
+        continue-on-error: true
+
+      # Build:
+      - name: Build
+        id: build
+        run: yarn build
+        continue-on-error: true
+
+      # Save cache
+      - name: Save node_modules cache
+        uses: actions/cache/save@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-dependencies-${{ hashFiles('**/yarn.lock') }}
+
+      # Efficiency: This allows us to find a typescript error AND a linting error in the same run
+      - name: Check if any of the previous steps failed
+        if: steps.lint.outcome != 'success' || steps.test.outcome != 'success' || steps.typescript.outcome != 'success' || steps.build.outcome != 'success'
+        run: exit 1

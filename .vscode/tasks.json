@@ -1,0 +1,35 @@
+{
+	"version": "2.0.0",
+	"type": "shell",
+	"command": "yarn",
+	"presentation": {
+		"echo": true,
+		"reveal": "always",
+		"focus": true,
+		"clear": true,
+		"close": false,
+		"panel": "dedicated",
+		"showReuseMessage": false,
+		"revealProblems": "never",
+	},
+	"tasks": [
+		// Start Vite:
+		{
+			"label": "Run",
+			"detail": "Installs and starts Vite",
+			"icon": {
+				"id": "layout",
+				"color": "terminal.ansiGreen",
+			},
+
+			"presentation": {
+				"group": "core"
+			},
+
+			"args": [
+				"dev"
+			],
+			"group": "build",
+		},
+	]
+}

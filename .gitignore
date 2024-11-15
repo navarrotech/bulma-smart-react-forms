@@ -1,0 +1,35 @@
+# Build directories
+dist/
+coverage/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.yarn
+
+# Cache directories
+.yarn/
+.vite/
+
+# Node.js
+node_modules/
+package-lock.json
+
+# Env
+.env.development
+.env
+
+# Production executables
+*.deb
+*.rpm
+*.msi
+*.exe
+
+# Editor files
+.DS_Store
+.idea
