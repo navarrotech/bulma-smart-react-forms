@@ -19,6 +19,8 @@ export { Image, } from './elements/Image'
 export { Notification, } from './elements/Notification'
 export { Table, } from './elements/Table'
 export { Tag, } from './elements/Tag'
+export { Tags, } from './elements/Tags'
+export { Titles, } from './elements/Titles'
 
 // Components
 export { Modal, } from './components/Modal'

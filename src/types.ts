@@ -19,9 +19,23 @@ export type BulmaColor =
   | 'ghost'
   | string
 
+export type BulmaTextSizes =
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+
 // Language
 export type LanguageKeyOrText = string
 export type LanguageFunction = (keyOrText: LanguageKeyOrText) => string
+
+// Generics
+export type OptionalNever<T> = {
+  [K in keyof T]?: T[K] | never
+}
 
 // Validators
 export type ValidatorProp = ((yup: Yup) => AnyObjectSchema) | AnyObjectSchema | undefined

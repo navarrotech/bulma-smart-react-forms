@@ -5,12 +5,15 @@ import { Children, isValidElement } from 'react'
 import { LightPropHandler } from '@/utility/LightPropHandler'
 
 // Typescript
-import type { LightProps, ChildProps, AsSize, AsLeftCenteredRight, OptionalNever } from '@/types'
+import type { LightProps, ChildProps, AsSize, OptionalNever } from '@/types'
+
+// Documentation:
+// https://bulma.io/documentation/elements/tags/
 
 type Props =
   & (
-    ({ singleLine?: false } & AsLeftCenteredRight & AsSize)
-    | ({ singleLine: true } & OptionalNever<AsLeftCenteredRight> & OptionalNever<AsSize>)
+    ({ singleLine?: false } & AsSize)
+    | ({ singleLine: true } & OptionalNever<AsSize>)
   )
   & LightProps
   & ChildProps
@@ -21,7 +24,7 @@ type Props =
   }
   & Record<string, unknown>
 
-export function Buttons(props: Props) {
+export function Tags(props: Props) {
   if (props.singleLine) {
     const className: string = [
       'is-grouped',
@@ -54,16 +57,13 @@ export function Buttons(props: Props) {
     props.small && 'are-small',
     props.medium && 'are-medium',
     props.large && 'are-large',
-    props.left && 'is-left',
-    props.centered && 'is-centered',
-    props.right && 'is-right',
     props.fullwidth && 'is-fullwidth',
     props.hasAddons && 'has-addons',
-  ].filter(Boolean).join(' ') || ''
+  ].filter(Boolean).join(' ')
 
   return <LightPropHandler
     { ...props }
-    rootClassname='buttons'
+    rootClassname='tags'
     className={className}
   >{
       props.children
