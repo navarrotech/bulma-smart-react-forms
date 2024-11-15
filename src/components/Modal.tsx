@@ -9,12 +9,12 @@ import type { ReactNode } from 'react'
 import type { StandardProps, ActionButton } from '@/types'
 
 // Components
-import { ActionButtons } from './ActionButtons'
-import { ErrorBoundary } from './ErrorBoundary'
+import { ActionButtons } from '@/navarrotech/ActionButtons'
+import { ErrorBoundary } from '../todo/ErrorBoundary'
 
 // Misc
 import { useHotkey, useTranslation } from '@/utility/hooks'
-import { Delete } from './Delete'
+import { Delete } from '@/elements/Delete'
 
 // Based on the Bulma modal
 // https://bulma.io/documentation/components/modal/

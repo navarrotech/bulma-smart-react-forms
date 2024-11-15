@@ -6,11 +6,15 @@ import { useTranslation } from '@/utility/hooks'
 // Typescript
 import type { ChildProps, LightProps } from '@/types'
 
-type Props = LightProps & ChildProps & {
-  rootClassname: string
-  // Allows you to specify a tag like 'div', 'span', etc:
-  as?: keyof JSX.IntrinsicElements
-}
+type Props =
+  & LightProps
+  & ChildProps
+  & {
+    rootClassname: string
+    // Allows you to specify a tag like 'div', 'span', etc:
+    as?: keyof JSX.IntrinsicElements
+  }
+  & Record<string, unknown>
 
 export function LightPropHandler(props: Props) {
   const { translate, } = useTranslation()

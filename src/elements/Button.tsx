@@ -6,10 +6,10 @@ import { useCallback } from 'react'
 // Typescript
 import type { ReactNode, MouseEvent as ReactMouseEvent } from 'react'
 import type { AsSize, IconDefinition, StandardProps } from '@/types'
-import type { ColorfulProps } from '@/utility/Colorful'
+import type { ColorfulProps } from '@/utility/color'
 
 // Utility
-import { useColorful } from '@/utility/Colorful'
+import { useColorful } from '@/utility/color'
 import { useTranslation } from '@/utility/hooks'
 
 // Misc

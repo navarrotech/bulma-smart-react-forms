@@ -5,11 +5,11 @@ import type { ReactNode } from 'react'
 import type { LightProps, ActionButton, IconDefinition, LanguageKeyOrText } from '@/types'
 
 // UI
-import { ActionButtons } from './ActionButtons'
+import { ActionButtons } from '@/navarrotech/ActionButtons'
 import { Delete } from './Delete'
 
 // Misc
-import { ColorfulProps, useColorful } from '@/utility/Colorful'
+import { ColorfulProps, useColorful } from '@/utility/color'
 import { useTranslation } from '@/utility/hooks'
 
 // This is a simple wrapper around the Bulma notification styles
