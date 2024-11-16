@@ -31,17 +31,20 @@ type AsShow = {
   onOpen?: never
 }
 
-type ModalProps = (AsTrigger | AsShow) & StandardProps & {
-  // Required:
-  id: string
-  onClose: () => void
-  children: ReactNode // Body content
-  actions: ActionButton[]
-  show: boolean
+type ModalProps =
+  & (AsTrigger | AsShow)
+  & StandardProps
+  & {
+    // Required:
+    id: string
+    onClose: () => void
+    children: ReactNode // Body content
+    actions: ActionButton[]
+    show: boolean
 
-  // Smart:
-  disableEscapeKeyToClose?: boolean
-}
+    // Smart:
+    disableEscapeKeyToClose?: boolean
+  }
 
 export function Modal(props: ModalProps) {
   const { translate, } = useTranslation()

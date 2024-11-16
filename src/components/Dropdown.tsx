@@ -105,25 +105,15 @@ export function Dropdown(props: Props) {
   }, [ isOpen, ])
 
   // Classnames
-  let rootClassname = 'dropdown'
-  if (!props.forceClosed && (isOpen || props.forceActive)) {
-    rootClassname += ' is-active'
-  }
-  if (props.fullwidth) {
-    rootClassname += ' is-fullwidth'
-  }
-  if (props.up) {
-    rootClassname += ' is-up'
-  }
-  if (props.right) {
-    rootClassname += ' is-right'
-  }
-  if (props.hoverable) {
-    rootClassname += ' is-hoverable'
-  }
-  if (props.className) {
-    rootClassname += ' ' + props.className
-  }
+  const classes: string = [
+    'dropdown',
+    props.className,
+    !props.forceClosed && (isOpen || props.forceActive) && 'is-active',
+    props.fullwidth && 'is-fullwidth',
+    props.up && 'is-up',
+    props.right && 'is-right',
+    props.hoverable && 'is-hoverable',
+  ].filter(Boolean).join(' ')
 
   const triggerClassname = 'dropdown-trigger ' + (props.triggerClassname || '')
   const menuClassname = 'dropdown-menu ' + (props.menuClassname || '')
@@ -135,7 +125,7 @@ export function Dropdown(props: Props) {
       id={props.id}
       ref={dropdownRef}
       title={translate(props.title)}
-      className={rootClassname}
+      className={classes}
     >
       <div
         className={triggerClassname}

@@ -14,7 +14,7 @@ import { Nothing } from '@/constants'
 // Documentation:
 // https://bulma.io/documentation/elements/title/
 
-type Props =
+export type TitlesProps =
   & {
     // Optional
     title: LanguageKeyOrText
@@ -36,7 +36,7 @@ const sizeToTagNameMap: Record<BulmaTextSizes, keyof JSX.IntrinsicElements> = {
   7: 'h6',
 } as const
 
-export function Titles(props: Props) {
+export function Titles(props: TitlesProps) {
   const { translate, } = useTranslation()
 
   const titleSize = props.titleSize || 3

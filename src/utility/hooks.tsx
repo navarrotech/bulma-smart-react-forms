@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { BulmaFormSettings } from '../BulmaFormSettings'
 
 // Typescript
-import type { LanguageFunction, LanguageKeyOrText } from '../types'
+import type { LanguageFunction, LanguageKeyOrText, AsLeftCenteredRight, AsSize } from '../types'
 
 function translate(keyOrText: LanguageKeyOrText) {
   return BulmaFormSettings.translationFunction(keyOrText)
@@ -41,6 +41,9 @@ export function useHotkey(
     }
 
     const handler = (event: KeyboardEvent) => {
+      event.preventDefault?.()
+      event.stopPropagation?.()
+      event.stopImmediatePropagation?.()
       if (event.key !== key) {
         return
       }
@@ -53,4 +56,24 @@ export function useHotkey(
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ key, callback, disabled, ...deps, ])
+}
+
+export function useLeftCenteredRight(props: AsLeftCenteredRight): string {
+  const { left, right, centered, } = props
+
+  return [
+    left && 'is-left',
+    right && 'is-right',
+    centered && 'is-centered',
+  ].filter(Boolean).join(' ') || ''
+}
+
+export function useSize(props: AsSize, prefix = 'is'): string {
+  const { small, medium, large, } = props
+
+  return [
+    small && `${prefix}-small`,
+    medium && `${prefix}-medium`,
+    large && `${prefix}-large`,
+  ].filter(Boolean).join(' ') || ''
 }

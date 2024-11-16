@@ -6,17 +6,17 @@ import { LightPropHandler } from '@/utility/LightPropHandler'
 // Typescript
 import type { LightProps } from '@/types'
 
-// Documentation:
-// https://bulma.io/documentation/elements/dropdown/
-
 type Props =
   & LightProps
+  & {
+
+  }
   & Record<string, unknown>
 
-export function DropdownDivider(props: Props) {
+export function NavbarDivider(props: Props) {
   return <LightPropHandler
-    {...props}
-    rootClassname='dropdown-divider'
+    { ...props }
+    rootClassname='navbar-divider'
     as='hr'
   >
     <></>

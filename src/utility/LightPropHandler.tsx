@@ -26,6 +26,8 @@ export function LightPropHandler(props: Props) {
     title={translate(props.title)}
     className={`${props.rootClassname} ${props.className}`}
   >{
-      props.children
+      typeof props.children === 'string'
+        ? translate(props.children)
+        : props.children
     }</Component>
 }

@@ -54,7 +54,7 @@ type AsRatio = {
   size?: never
 }
 
-type Props =
+export type ImageProps =
   & LightProps
   & AsLeftCenteredRight
   & (AsPresetSize | AsCustomSize | AsRatio)
@@ -66,7 +66,7 @@ type Props =
   }
   & Record<string, unknown>
 
-export function Image(props: Props) {
+export function Image(props: ImageProps) {
   const { translate, } = useTranslation()
 
   const className: string = [
