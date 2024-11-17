@@ -3,7 +3,7 @@
 
 // Core
 import '@testing-library/jest-dom'
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
 // Typescript to test
