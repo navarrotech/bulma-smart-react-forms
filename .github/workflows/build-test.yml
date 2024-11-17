@@ -52,7 +52,7 @@ jobs:
         run: yarn test
         continue-on-error: true
 
-      # Typescript checking
+      # Typescript preflight checking
       - name: Check types
         id: typescript
         run: yarn tsc --noEmit

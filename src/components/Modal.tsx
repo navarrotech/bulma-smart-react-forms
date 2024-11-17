@@ -6,11 +6,12 @@ import { BulmaFormSettings } from '@/BulmaFormSettings'
 
 // Typescript
 import type { ReactNode } from 'react'
-import type { StandardProps, ActionButton } from '@/types'
+import type { StandardProps } from '@/types'
+import type { ButtonProps } from '@/elements/Button'
 
 // Components
-import { ActionButtons } from '@/navarrotech/ActionButtons'
-import { ErrorBoundary } from '../todo/ErrorBoundary'
+import { Button } from '@/elements/Button'
+import { ErrorBoundary } from '@/navarrotech/ErrorBoundary'
 
 // Misc
 import { useHotkey, useTranslation } from '@/utility/hooks'
@@ -39,7 +40,7 @@ type ModalProps =
     id: string
     onClose: () => void
     children: ReactNode // Body content
-    actions: ActionButton[]
+    actions?: ButtonProps[]
     show: boolean
 
     // Smart:
@@ -92,9 +93,14 @@ export function Modal(props: ModalProps) {
                   props.children
                 }</ErrorBoundary>
               </section>
-              <footer className='modal-card-foot buttons is-right'>
-                <ActionButtons id={`modal-${props.id}-actions`} actions={props.actions} />
-              </footer>
+              <footer className='modal-card-foot buttons is-right'>{
+                props.actions?.map((action, index) => (
+                  <Button
+                    key={index + '-' + action.id}
+                    { ...action }
+                  />
+                ))
+              }</footer>
             </div>
           </div>
         </ErrorBoundary>,

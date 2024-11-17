@@ -2,24 +2,44 @@
   "name": "bulma-smart-react-forms",
   "description": "A lightweight collection of Bulma elements as React components, with built in validators, error handlers, and a smart form",
   "version": "2024.11.14-BETA",
-  "private": false,
-  "type": "module",
-  "main": "src/",
   "author": {
     "name": "Alex Navarro",
     "email": "alex@navarrotech.net",
     "url": "https://www.navarrotech.net",
     "organization": "NavarroTech"
   },
+  "homepage": "https://github.com/navarrotech/bulma-smart-react-forms",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/navarrotech/bulma-smart-react-forms"
+  },
+  "bugs": {
+    "url": "https://github.com/navarrotech/bulma-smart-react-forms/issues"
+  },
+  "license": "MIT",
+  "private": false,
+  "type": "module",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "keywords": [
+    "react",
+    "bulma",
+    "components",
+    "library"
+  ],
   "scripts": {
-    "dev": "yarn install && vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "analyze": "vite-bundle-visualizer",
+    "build": "npm run build:esm && npm run build:cjs && npm run bannerize",
+    "build:check": "tsc --noEmit",
+    "build:esm": "tsc --project tsconfig.esm.json",
+    "build:cjs": "tsc --project tsconfig.cjs.json",
+    "bannerize": "node scripts/bannerize.js",
     "test": "vitest run --dom --coverage",
     "test:dev": "DEBUG_PRINT_LIMIT=100000 vitest watch --ui --dom --coverage.enabled=true",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives",
-    "lint:watch": "nodemon --exec 'yarn lint' --watch src --watch .eslintrc.js",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives",
     "clean": "rm -rf dist && rm -rf node_modules",
     "reinstall": "yarn clean && yarn install"
   },
@@ -28,19 +48,17 @@
     "yarn": ">=1.22.0"
   },
   "dependencies": {
-    "bulma": "^1.0.1",
-    "bulma-divider": "^0.2.0",
-    "bulma-slider": "^2.0.5",
-    "bulma-switch": "^2.0.4",
     "events": "^3.3.0",
     "fuzzy-search": "^3.2.1",
     "lodash-es": "^4.17.21",
-    "moment-timezone": "^0.5.45",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "sass": "^1.77.6",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "uuid": "^10.0.0",
     "yup": "^1.4.0"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
     "@stylistic/eslint-plugin-js": "^2.2.1",
@@ -57,7 +75,7 @@
     "@types/wicg-file-system-access": "^2023.10.5",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
-    "@vitejs/plugin-react-swc": "^3.7.0",
+    "@vitejs/plugin-react-swc": "^3.7.1",
     "@vitest/coverage-v8": "^2.0.4",
     "@vitest/ui": "^2.0.4",
     "eslint": "^8.57.0",
@@ -73,11 +91,7 @@
     "eslint-plugin-react-refresh": "^0.4.6",
     "happy-dom": "^14.12.0",
     "typescript": "^5.2.2",
-    "vite": "^5.2.0",
-    "vite-bundle-visualizer": "1.1.0",
-    "vite-plugin-full-reload": "^1.2.0",
-    "vite-plugin-svgr": "^4.2.0",
-    "vite-tsconfig-paths": "^4.3.2",
+    "vite-tsconfig-paths": "^5.1.2",
     "vitest": "^2.0.4"
   },
   "resolutions": {

@@ -2,10 +2,9 @@
 
 // Typescript
 import type { ReactNode } from 'react'
-import type { LightProps, ActionButton, IconDefinition, LanguageKeyOrText } from '@/types'
+import type { LightProps, IconDefinition, LanguageKeyOrText } from '@/types'
 
 // UI
-import { ActionButtons } from '@/navarrotech/ActionButtons'
 import { Delete } from './Delete'
 
 // Misc
@@ -46,7 +45,6 @@ type Props =
 
     // Optional settings:
     icon?: IconDefinition
-    actions?: ActionButton[]
   }
   & Record<string, unknown>
 
@@ -77,14 +75,6 @@ export function Notification(props: Props) {
       : typeof props.children === 'string'
         ? <span>{ translate(props.children) }</span>
         : props.children
-    }
-    { props.actions
-      ? <ActionButtons
-        id={`notification-actions-${props.id}`}
-        actions={props.actions}
-        className='mt-3'
-      />
-      : <></>
     }
   </div>
 }

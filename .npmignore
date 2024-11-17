@@ -1,0 +1,14 @@
+node_modules/
+scripts/
+test/
+.github/
+.vscode/
+.eslintrc.cjs
+.gitignore
+src/
+README.md
+tsconfig.json
+tsconfig.cjs.json
+tsconfig.esm.json
+vitest.config.ts
+yarn.lock

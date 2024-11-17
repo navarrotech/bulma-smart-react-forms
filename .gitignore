@@ -1,6 +1,8 @@
 # Build directories
-dist/
+# dist/ # We want to keep the dist directory in the repository for npm publishing
 coverage/
+test/
+todo/
 
 # Logs
 logs

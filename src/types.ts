@@ -59,17 +59,6 @@ export type StandardProps = LightProps & {
   disabled?: boolean
 }
 
-export type ActionButton = {
-  id: string
-  text: LanguageKeyOrText
-  color?: BulmaColor
-  icon?: IconDefinition
-  title?: LanguageKeyOrText
-  loading?: boolean
-  disabled?: boolean
-  onClick?: () => void
-}
-
 // Utility
 export type ColorfulType = {
   className: string
