@@ -6,13 +6,7 @@ module.exports = {
     browser: true,
     es2020: true,
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
-    'google',
-  ],
+  extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react-hooks/recommended', 'google', 'plugin:storybook/recommended', 'plugin:storybook/recommended'],
   ignorePatterns: [
     'dist',
     'vite-env.d.ts',
@@ -162,7 +156,10 @@ module.exports = {
     'require-jsdoc': 'off',
 
     // Google ES2015 limits the max length of lines to 80. This feels too strict. I've bumped it up.
-    'max-len': ['error', { code: 100, },],
+    'max-len': [
+      'error',
+      { code: 100, },
+    ],
 
     // ////////////////////////////////////////
     // Best custom practices
@@ -187,10 +184,21 @@ module.exports = {
   overrides: [
     // In test files, allow devDependencies and turn off the no-extraneous-dependencies rule
     {
-      files: ['**/__test__/**/*.{js,ts}', '**/*.test.{js,ts}'],
+      files: [
+        '**/*.test.{js,jsx,ts,tsx}',
+        '**/*.stories.{js,jsx,ts,tsx}',
+      ],
       rules: {
         'import/no-extraneous-dependencies': 'off',
         'i18next/no-literal-string': 'off',
+      },
+    },
+    {
+      files: [
+        '**/*.stories.{js,jsx,ts,tsx}',
+      ],
+      rules: {
+        'import/no-default-export': 'off'
       },
     },
   ],

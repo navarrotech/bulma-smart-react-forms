@@ -2,59 +2,42 @@
 
 import { defineConfig } from 'vitest/config'
 
-// Node.js
-import path from 'path'
-
-// Plugins
-import react from '@vitejs/plugin-react-swc'
-// https://www.npmjs.com/package/vite-tsconfig-paths
-import tsconfigPaths from 'vite-tsconfig-paths'
+import config from './vite.config'
 
 // For more information regarding this configuration:
-// https://vitejs.dev/config/
 // https://vitest.dev/config/
 
 // eslint-disable-next-line import/no-default-export
 export default defineConfig({
-  plugins: [
-    // Absolute imports:
-    tsconfigPaths(),
-    // React language + JSX:
-    react(),
-  ],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, 'src')
-    },
-  },
+  ...config,
   test: {
+    passWithNoTests: true,
+
     // Reporting:
     reporters: [
       'verbose',
       'junit',
-      'github-actions',
-      'json',
+      'github-actions'
     ],
     outputFile: {
-      'junit': './test/test-results.xml',
-      'html': './test/test-results.html',
-      'json': './test/test-results.json',
-      'github-actions': './test/test-results-gh.json',
+      'junit': './test-results.xml',
+      'github-actions': './test-results.json',
     },
-    passWithNoTests: true,
 
     // Coverage (V8)
     coverage: {
       reporter: [
         'text-summary',
       ],
-      reportsDirectory: './test/coverage',
+      reportsDirectory: './coverage',
       provider: 'v8',
     },
 
     // Typescript
     typecheck: {
       enabled: true,
+      allowJs: false,
+      
     },
 
     // React.js:
@@ -66,7 +49,11 @@ export default defineConfig({
     maxWorkers: 3,
     logHeapUsage: true,
 
-    // Exclude Electron units:
+    include: [
+      'src/.test/**/*.tsx',
+    ],
+
+    // Exclude node modules:
     exclude: [
       'node_modules/**',
     ],

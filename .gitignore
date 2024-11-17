@@ -1,8 +1,11 @@
 # Build directories
 # dist/ # We want to keep the dist directory in the repository for npm publishing
 coverage/
-test/
 todo/
+
+# Test results
+test-results.xml
+test-results.json
 
 # Logs
 logs
@@ -35,3 +38,5 @@ package-lock.json
 # Editor files
 .DS_Store
 .idea
+
+*storybook.log
