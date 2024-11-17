@@ -5,7 +5,7 @@ import { LightPropHandler } from '@/utility/LightPropHandler'
 import { useTranslation } from '@/utility/hooks'
 
 // Typescript
-import type { LanguageKeyOrText, LightProps } from '@/types'
+import type { IconDefinition, LanguageKeyOrText, LightProps } from '@/types'
 import type { ImageProps } from '@/elements/Image'
 import type { ReactNode } from 'react'
 
@@ -26,6 +26,8 @@ type FooterButtonProps = LightProps & {
 type Props =
   & LightProps
   & {
+    collapseIcon?: IconDefinition
+    hideCollapse?: boolean
     header?: LanguageKeyOrText
     image?: ImageProps
     children?: ReactNode
@@ -45,12 +47,14 @@ export function Card(props: Props) {
         <p className='card-header-title'>{
           translate(props.header)
         }</p>
-        {/* TODO: */}
-        {/* <button className='card-header-icon' aria-label='more options'>
-          <span className='icon'>
-            <i className='fas fa-angle-down' aria-hidden='true'></i>
-          </span>
-        </button> */}
+        { !props.hideCollapse
+          ? <button className='card-header-icon' aria-label='more options'>
+            <span className='icon'>{
+              props.collapseIcon || DefaultDropdownIcon
+            }</span>
+          </button>
+          : Nothing
+        }
       </header>
       : Nothing
     }
@@ -87,3 +91,17 @@ export function Card(props: Props) {
     }
   </LightPropHandler>
 }
+
+// Font Awesome Free 6.6.0 by @fontawesome
+// - https://fontawesome.com License
+// - https://fontawesome.com/license/free
+// Copyright 2024 Fonticons, Inc.
+const DefaultDropdownIcon = <svg
+  xmlns='http://www.w3.org/2000/svg'
+  viewBox='0 0 448 512'>
+  <path
+    d='M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5
+    12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7
+    86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z'
+  />
+</svg>

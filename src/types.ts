@@ -1,6 +1,6 @@
 // Copyright © 2024 Navarrotech
 
-import type { ReactNode, CSSProperties, MouseEventHandler } from 'react'
+import type { ReactNode, CSSProperties, MouseEventHandler, HTMLAttributes } from 'react'
 import type { AnyObjectSchema } from 'yup'
 import type { Yup } from './utility/validators'
 
@@ -45,17 +45,20 @@ export type IconDefinition = string | ReactNode
 export type ChildProps = {
   children: ReactNode
 }
-export type LightProps = {
+
+export type LightProps<RootType = HTMLAttributes<HTMLElement>> = {
   id?: string
   title?: LanguageKeyOrText
   className?: string
   style?: CSSProperties
-}
+} & RootType
+
 export type StandardProps = LightProps & {
   onClick?: MouseEventHandler<HTMLElement>
   fullwidth?: boolean
   disabled?: boolean
 }
+
 export type ActionButton = {
   id: string
   text: LanguageKeyOrText

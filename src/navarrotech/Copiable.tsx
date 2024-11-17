@@ -17,12 +17,16 @@ type asDoubleClick = {
   useRightClick?: never
 }
 
-type Props = (asRightClick | asDoubleClick) & StandardProps & {
-  text: LanguageKeyOrText
-  onCopied?: () => void
-  children: ReactNode
-  noCursor?: boolean
-} & Record<string, unknown>
+type Props =
+  & (asRightClick | asDoubleClick)
+  & StandardProps
+  & {
+    text: LanguageKeyOrText
+    onCopied?: () => void
+    children: ReactNode
+    noCursor?: boolean
+  }
+  & Record<string, unknown>
 
 const COPY_STYLE = { cursor: 'copy', } as const
 
@@ -86,7 +90,7 @@ export function Copiable(props: Props) {
       (!useDoubleClick && !useRightClick)
         ? (event) => {
           copyFunction()
-          // @ts-ignore - TODO: Fix this!
+          // @ts-ignore - TODO: Fix this typescript ts-ignore?
           onClick?.(event)
         }
         : onClick
