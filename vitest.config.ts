@@ -26,6 +26,7 @@ export default defineConfig({
 
     // Coverage (V8)
     coverage: {
+      enabled: true,
       reporter: [
         'text-summary',
       ],
@@ -48,10 +49,6 @@ export default defineConfig({
     minWorkers: 2,
     maxWorkers: 3,
     logHeapUsage: true,
-
-    include: [
-      'src/.test/**/*.tsx',
-    ],
 
     // Exclude node modules:
     exclude: [

@@ -19,7 +19,7 @@ export class BulmaFormSettings {
   // //////////////////////////// //
 
   public static translationFunction: LanguageFunction = DEFAULT_TRANSLATION_FUNCTION
-  private static language: string = 'en'
+  private static language: string = ''
   private static events: EventEmitter<EventMap> = new EventEmitter()
 
   public static changeLanguage(newLanguage: string) {

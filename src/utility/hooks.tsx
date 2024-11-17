@@ -58,13 +58,13 @@ export function useHotkey(
   }, [ key, callback, disabled, ...deps, ])
 }
 
-export function useLeftCenteredRight(props: AsLeftCenteredRight): string {
+export function useLeftCenteredRight(props: AsLeftCenteredRight, prefix = 'is'): string {
   const { left, right, centered, } = props
 
   return [
-    left && 'is-left',
-    right && 'is-right',
-    centered && 'is-centered',
+    left && `${prefix}-left`,
+    right && `${prefix}-right`,
+    centered && `${prefix}-centered`,
   ].filter(Boolean).join(' ') || ''
 }
 

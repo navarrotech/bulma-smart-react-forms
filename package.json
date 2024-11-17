@@ -39,8 +39,9 @@
     "bannerize": "node scripts/bannerize.js",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test": "vitest run --dom --coverage",
-    "test:dev": "DEBUG_PRINT_LIMIT=100000 vitest watch --ui --dom --coverage.enabled=true",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "test:dev": "DEBUG_PRINT_LIMIT=100000 vitest watch --ui",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives",
     "clean": "rm -rf dist && rm -rf node_modules",
     "reinstall": "yarn clean && yarn install"

@@ -79,11 +79,16 @@ export function useColorful(props: ColorfulProps): ColorfulType {
         backgroundColor: props.color,
       }
     }
-    // OR it could be a named Bulma color
+    // OR it could be a custom named Bulma color
     else {
       className += ` is-${props.color}`
     }
   }
 
-  return { className, style, } as ColorfulType
+  className = className.trim()
+
+  return {
+    className,
+    style,
+  } as ColorfulType
 }
