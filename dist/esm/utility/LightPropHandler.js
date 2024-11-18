@@ -4,12 +4,13 @@
 // Core
 import { createElement } from 'react';
 import { useTranslation } from '@/utility/hooks';
-export function LightPropHandler(props) {
+import { omitProps } from './filters';
+export function LightPropHandler({ rootClassname, ...props }) {
     const { translate, } = useTranslation();
     return createElement(props.as || 'div', {
-        ...props,
+        ...omitProps(props),
         title: translate(props.title),
-        className: `${props.rootClassname} ${props.className}`,
+        className: `${rootClassname} ${props.className}`,
     }, typeof props.children === 'string'
         ? translate(props.children)
         : props.children);

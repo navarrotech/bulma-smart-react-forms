@@ -3,26 +3,25 @@
 import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
 // Copyright © 2024 Navarrotech
 // Core
-import { useCallback } from 'react';
+import { LightPropHandler } from '@/utility/LightPropHandler';
 // Utility
+import { useCallback } from 'react';
 import { useColorful } from '@/utility/color';
-import { useTranslation } from '@/utility/hooks';
+import { useSize, useTranslation } from '@/utility/hooks';
 // Misc
 import { Nothing } from '@/constants';
 export function Button(props) {
     const { translate, } = useTranslation();
     const { className, style, } = useColorful(props);
+    const sizeClass = useSize(props);
     const classes = [
-        'button',
         className,
+        sizeClass,
         props.outlined && 'is-outlined',
         props.inverted && 'is-inverted',
         props.rounded && 'is-rounded',
         props.disabled && 'is-disabled',
         props.loading && 'is-loading',
-        props.small && 'is-small',
-        props.medium && 'is-medium',
-        props.large && 'is-large',
         props.focused && 'is-focused',
         props.active && 'is-active',
         props.static && 'is-static',
@@ -39,12 +38,10 @@ export function Button(props) {
     }, [props.onClick, props.disabled, props.loading,]);
     const iconLeft = props.icon ? _jsx("span", { className: 'icon', children: props.icon }) : Nothing;
     const iconRight = props.iconRight ? _jsx("span", { className: 'icon', children: props.iconRight }) : Nothing;
-    const Component = props.as || 'button';
-    return (_jsx(Component, { ...props, id: props.id, 
-        // @ts-ignore
-        type: 'button', title: translate(props.title), disabled: props.disabled || props.loading, 
-        // @ts-ignore
-        onClick: onClick, className: classes, style: style, children: typeof props.children === 'string'
-            ? _jsxs(_Fragment, { children: [iconLeft, _jsx("span", { children: translate(props.children) }), iconRight] })
-            : props.children }));
+    const as = props.as || 'button';
+    return _jsxs(LightPropHandler, { ...props, as: as, type: as === 'button'
+            ? 'button'
+            : undefined, rootClassname: 'button', disabled: props.disabled || props.loading, onClick: onClick, className: classes, style: style, children: [iconLeft, typeof props.children === 'string' || props.text
+                ? _jsx(_Fragment, { children: _jsx("span", { children: translate(props.text || props.children) }) })
+                : props.children, iconRight] });
 }

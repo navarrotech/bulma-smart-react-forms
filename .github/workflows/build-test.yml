@@ -26,11 +26,11 @@ jobs:
     steps:
       # Setup:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@latest
 
       - name: Restore cache
         id: cache-deps
-        uses: actions/cache@v4
+        uses: actions/cache@latest
         with:
           path: node_modules
           key: ${{ runner.os }}-dependencies-${{ hashFiles('**/yarn.lock') }}
@@ -52,6 +52,12 @@ jobs:
         run: yarn test
         continue-on-error: true
 
+      # Visualize the test results from the junit report
+      - name: Publish test results
+        uses: EnricoMi/publish-unit-test-result-action@latest
+        with:
+          files: './test-results.xml'
+
       # Typescript preflight checking
       - name: Check types
         id: typescript
@@ -66,7 +72,7 @@ jobs:
 
       # Save cache
       - name: Save node_modules cache
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@latest
         with:
           path: node_modules
           key: ${{ runner.os }}-dependencies-${{ hashFiles('**/yarn.lock') }}

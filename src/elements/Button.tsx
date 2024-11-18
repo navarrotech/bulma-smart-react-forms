@@ -1,16 +1,17 @@
 // Copyright © 2024 Navarrotech
 
 // Core
-import { useCallback } from 'react'
+import { LightPropHandler } from '@/utility/LightPropHandler'
 
 // Typescript
 import type { ReactNode, MouseEvent as ReactMouseEvent } from 'react'
-import type { AsSize, IconDefinition, StandardProps } from '@/types'
+import type { AsSize, IconDefinition, LanguageKeyOrText, StandardProps } from '@/types'
 import type { ColorfulProps } from '@/utility/color'
 
 // Utility
+import { useCallback } from 'react'
 import { useColorful } from '@/utility/color'
-import { useTranslation } from '@/utility/hooks'
+import { useSize, useTranslation } from '@/utility/hooks'
 
 // Misc
 import { Nothing } from '@/constants'
@@ -18,14 +19,24 @@ import { Nothing } from '@/constants'
 // Documentation:
 // https://bulma.io/documentation/elements/button/
 
+type AsText = {
+  text: LanguageKeyOrText
+  children?: never
+}
+
+type AsChildren = {
+  text?: never
+  children: ReactNode
+}
+
 export type ButtonProps =
   & AsSize
   & StandardProps
   & ColorfulProps
+  & (AsText | AsChildren)
   & {
     // Required:
     id: string // Id is good practice, we should require it
-    children: ReactNode
 
     // Style:
     icon?: IconDefinition
@@ -49,18 +60,16 @@ export type ButtonProps =
 export function Button(props: ButtonProps) {
   const { translate, } = useTranslation()
   const { className, style, } = useColorful(props)
+  const sizeClass = useSize(props)
 
   const classes: string = [
-    'button',
     className,
+    sizeClass,
     props.outlined && 'is-outlined',
     props.inverted && 'is-inverted',
     props.rounded && 'is-rounded',
     props.disabled && 'is-disabled',
     props.loading && 'is-loading',
-    props.small && 'is-small',
-    props.medium && 'is-medium',
-    props.large && 'is-large',
     props.focused && 'is-focused',
     props.active && 'is-active',
     props.static && 'is-static',
@@ -81,30 +90,31 @@ export function Button(props: ButtonProps) {
   const iconLeft = props.icon ? <span className='icon'>{ props.icon }</span> : Nothing
   const iconRight = props.iconRight ? <span className='icon'>{ props.iconRight }</span> : Nothing
 
-  const Component = props.as || 'button'
+  const as = props.as || 'button'
 
-  return (
-    <Component
-      { ...props }
-      id={props.id}
-      // @ts-ignore
-      type='button'
-      title={translate(props.title)}
-      disabled={props.disabled || props.loading}
-      // @ts-ignore
-      onClick={onClick}
-      className={classes}
-      style={style}
-    >{
-        typeof props.children === 'string'
-          ? <>
-            { iconLeft }
-            <span>{
-              translate(props.children)
-            }</span>
-            { iconRight }
-          </>
-          : props.children
-      }</Component>
-  )
+  return <LightPropHandler
+    { ...props }
+    as={as}
+    type={as === 'button'
+      ? 'button'
+      : undefined
+    }
+    rootClassname='button'
+    disabled={props.disabled || props.loading}
+    onClick={onClick}
+    className={classes}
+    style={style}
+  >
+    { iconLeft }
+    {
+      typeof props.children === 'string' || props.text
+        ? <>
+          <span>{
+            translate(props.text || props.children as string)
+          }</span>
+        </>
+        : props.children
+    }
+    { iconRight }
+  </LightPropHandler>
 }

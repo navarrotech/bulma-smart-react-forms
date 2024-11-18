@@ -3,6 +3,7 @@
 // Core
 import { createElement } from 'react'
 import { useTranslation } from '@/utility/hooks'
+import { omitProps } from './filters'
 
 // Typescript
 import type { ChildProps, LightProps } from '@/types'
@@ -10,7 +11,7 @@ import type { ChildProps, LightProps } from '@/types'
 // Where this is from:
 // https://stackoverflow.com/a/56411377/9951599
 
-type Props =
+export type LightPropHandlerProps =
   & LightProps
   & ChildProps
   & {
@@ -20,15 +21,15 @@ type Props =
   }
   & Record<string, unknown>
 
-export function LightPropHandler(props: Props) {
+export function LightPropHandler({ rootClassname, ...props }: LightPropHandlerProps) {
   const { translate, } = useTranslation()
 
   return createElement(
     props.as || 'div',
     {
-      ...props,
+      ...omitProps(props),
       title: translate(props.title),
-      className: `${props.rootClassname} ${props.className}`,
+      className: `${rootClassname} ${props.className}`,
     },
     typeof props.children === 'string'
       ? translate(props.children)

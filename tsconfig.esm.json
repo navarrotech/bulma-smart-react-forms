@@ -3,5 +3,12 @@
   "compilerOptions": {
     "outDir": "dist/esm",
     "module": "esnext"
-  }
+  },
+  "exclude": [
+    "node_modules",
+    "src/**/*.test.tsx",
+    "src/**/*.test.ts",
+    "src/**/*.stories.tsx",
+    "src/**/*.stories.ts"
+  ]
 }

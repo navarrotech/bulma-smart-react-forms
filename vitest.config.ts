@@ -11,6 +11,7 @@ import config from './vite.config'
 export default defineConfig({
   ...config,
   test: {
+    isolate: true,
     passWithNoTests: true,
 
     // Reporting:
