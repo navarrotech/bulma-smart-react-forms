@@ -19,9 +19,9 @@
   "license": "MIT",
   "private": false,
   "type": "module",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/esm/index.d.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist/"
   ],
@@ -32,16 +32,17 @@
     "library"
   ],
   "scripts": {
-    "build": "npm run build:esm && npm run build:cjs && npm run bannerize",
-    "build:check": "tsc --noEmit",
-    "build:esm": "tsc --project tsconfig.esm.json",
-    "build:cjs": "tsc --project tsconfig.cjs.json",
+    "prebuild": "rimraf dist",
+    "build": "vite build",
+    "postbuild": "npm run bannerize",
     "bannerize": "node scripts/bannerize.js",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:dev": "DEBUG_PRINT_LIMIT=100000 vitest watch --ui",
+    "typecheck:esm": "tsc --project tsconfig.esm.json",
+    "typecheck:cjs": "tsc --project tsconfig.cjs.json",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives",
     "clean": "rm -rf dist && rm -rf node_modules",
     "reinstall": "yarn clean && yarn install"
@@ -103,15 +104,13 @@
     "eslint-plugin-react-refresh": "^0.4.6",
     "eslint-plugin-storybook": "^0.11.0",
     "happy-dom": "^14.12.0",
+    "rimraf": "^6.0.1",
     "sass": "^1.81.0",
     "storybook": "8.4.4",
-    "typescript": "^5.2.2",
+    "typescript": "^5.6.0",
     "vite": "^5.4.11",
+    "vite-plugin-dts": "^4.3.0",
     "vite-tsconfig-paths": "^5.1.2",
     "vitest": "^2.0.4"
-  },
-  "resolutions": {
-    "strip-ansi": "6.0.1",
-    "ajv": "6.5.5"
   }
 }

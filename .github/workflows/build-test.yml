@@ -58,10 +58,10 @@ jobs:
         with:
           files: './test-results.xml'
 
-      # Typescript preflight checking
+      # Typescript preflight checking, checks normal, then ESM, then CJS
       - name: Check types
         id: typescript
-        run: yarn tsc --noEmit
+        run: yarn tsc --noEmit && yarn typecheck:esm --noEmit && yarn typecheck:cjs--noEmit
         continue-on-error: true
 
       # Build:

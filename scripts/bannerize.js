@@ -26,7 +26,7 @@ const DIST_DIR = join(__dirname, '../dist')
 const CURRENT_YEAR = new Date().getFullYear()
 
 // The copyright header to prepend
-const COPYRIGHT_HEADER_TEMPLATE = `// Copyright © ${CURRENT_YEAR} Navarrotech\n\n`
+const COPYRIGHT_HEADER_TEMPLATE = `/* Copyright © ${CURRENT_YEAR} Navarrotech */\n`
 
 let headerCount = 0
 
@@ -42,11 +42,11 @@ const addHeaderToFiles = (dir) => {
       // If the entry is a directory, process it recursively
       addHeaderToFiles(entryPath)
     }
-    else if (entry.endsWith('.js') || entry.endsWith('.d.ts')) {
+    else if (entry.endsWith('.cjs') || entry.endsWith('.js') || entry.endsWith('.d.ts')) {
       headerCount++
 
       // If the file is a .js or .d.ts, add the copyright header
-      const content = readFileSync(entryPath, 'utf-8')
+      const content = readFileSync(entryPath, 'utf-8')?.trim()
 
       // Skip adding the header if it already exists
       if (!content.startsWith(COPYRIGHT_HEADER_TEMPLATE)) {

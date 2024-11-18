@@ -4,6 +4,8 @@
     "useDefineForClassFields": true,
     "module": "ES2022",
     "declaration": true,
+    "declarationMap": false,
+    "noEmit": true,
     "lib": [
       "ESNext",
       "DOM",
@@ -12,20 +14,19 @@
     "skipLibCheck": true,
     /* Bundler mode */
     "moduleResolution": "bundler",
-    "resolveJsonModule": false,
-    "isolatedModules": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     /* Linting */
     "strictNullChecks": false,
     "strict": true,
     /* Pathing */
+    "outDir": "./dist",
     "baseUrl": "./src",
     "paths": {
       "@/*": [
         "*"
       ]
-    }
+    },
   },
   "include": [
     "src",
