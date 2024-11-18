@@ -40,10 +40,14 @@ function useColorful(props) {
                 backgroundColor: props.color,
             };
         }
-        // OR it could be a named Bulma color
+        // OR it could be a custom named Bulma color
         else {
             className += ` is-${props.color}`;
         }
     }
-    return { className, style, };
+    className = className.trim();
+    return {
+        className,
+        style,
+    };
 }

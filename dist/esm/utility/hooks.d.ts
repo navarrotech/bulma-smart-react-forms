@@ -7,6 +7,6 @@ type UseTranslationReturn = {
 };
 export declare function useTranslation(): UseTranslationReturn;
 export declare function useHotkey(key: string, callback: () => void, deps?: any[], disabled?: boolean): void;
-export declare function useLeftCenteredRight(props: AsLeftCenteredRight): string;
+export declare function useLeftCenteredRight(props: AsLeftCenteredRight, prefix?: string): string;
 export declare function useSize(props: AsSize, prefix?: string): string;
 export {};

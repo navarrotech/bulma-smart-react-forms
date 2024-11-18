@@ -1,6 +1,5 @@
 // Copyright © 2024 Navarrotech
 
-
 // Core
 import '@testing-library/jest-dom'
 import { renderHook } from '@testing-library/react'
@@ -105,6 +104,9 @@ describe('useColorful', () => {
     expect(result.current).toEqual({ className: 'is-dark', style: {}, })
   })
 
+  // /////////////////// //
+  //       Advanced      //
+  // /////////////////// //
   it('should not apply a custom style color when given a bulma color', () => {
     // @ts-ignore - We're testing a specific case
     const props: ColorfulProps = {

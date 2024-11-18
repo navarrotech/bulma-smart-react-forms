@@ -15,7 +15,7 @@ class BulmaFormSettings {
     //    Translation & Language    //
     // //////////////////////////// //
     static translationFunction = DEFAULT_TRANSLATION_FUNCTION;
-    static language = 'en';
+    static language = '';
     static events = new events_1.default();
     static changeLanguage(newLanguage) {
         this.language = newLanguage;

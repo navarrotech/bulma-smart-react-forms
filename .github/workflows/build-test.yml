@@ -61,7 +61,7 @@ jobs:
       # Build:
       - name: Build
         id: build
-        run: yarn build
+        run: rm -rf dist/ && yarn build
         continue-on-error: true
 
       # Save cache
@@ -75,3 +75,22 @@ jobs:
       - name: Check if any of the previous steps failed
         if: steps.lint.outcome != 'success' || steps.test.outcome != 'success' || steps.typescript.outcome != 'success' || steps.build.outcome != 'success'
         run: exit 1
+
+        # In all PRs, the PR should include the output dist/ build folder
+        # If the build step produces a different dist/ then the PR is out of date
+      - name: Was the updated dist/ folder added in this PR?
+        if: github.event_name == 'pull_request'
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+
+          # Stage the dist/ folder
+          git add dist/
+
+          # Check if there are changes
+          if git diff --cached --exit-code; then
+            echo "dist/ folder is up to date."
+          else
+            echo "dist/ folder is out of date. Update the dist/ folder with 'yarn build' and push changes."
+            exit 1
+          fi

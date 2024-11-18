@@ -38,12 +38,12 @@ export function useHotkey(key, callback, deps = [], disabled = false) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [key, callback, disabled, ...deps,]);
 }
-export function useLeftCenteredRight(props) {
+export function useLeftCenteredRight(props, prefix = 'is') {
     const { left, right, centered, } = props;
     return [
-        left && 'is-left',
-        right && 'is-right',
-        centered && 'is-centered',
+        left && `${prefix}-left`,
+        right && `${prefix}-right`,
+        centered && `${prefix}-centered`,
     ].filter(Boolean).join(' ') || '';
 }
 export function useSize(props, prefix = 'is') {

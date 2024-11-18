@@ -32,7 +32,9 @@
   ],
   "exclude": [
     "node_modules",
-    "**/*.test.ts?(x)",
-    "**/*.stories.ts?(x)"
+    "src/**/*.test.tsx",
+    "src/**/*.test.ts",
+    "src/**/*.stories.tsx",
+    "src/**/*.stories.ts"
   ]
 }
