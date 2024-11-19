@@ -131,7 +131,7 @@ export function Input(props: InputProps) {
 
   const disabled = props.disabled || props.readonly || props.static || props.loading
 
-  // @ts-ignore
+  // @ts-ignore // TODO: Fix this
   return <Control
     icon={props.icon}
     iconRight={props.iconRight}
@@ -142,6 +142,16 @@ export function Input(props: InputProps) {
     small={props.small}
     medium={props.medium}
     large={props.large}
+    iconSize={
+      props.small
+        ? 'small'
+        : props.medium
+          ? undefined
+          // @ts-ignore // TODO: Fix this
+          : props.large
+            ? 'medium'
+            : 'small'
+    }
   >{
       createElement(
         // Tag name
