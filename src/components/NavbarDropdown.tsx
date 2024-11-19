@@ -3,7 +3,7 @@
 // Core
 import { useState } from 'react'
 import { LightPropHandler } from '@/utility/LightPropHandler'
-import { useTranslation } from '@/utility/hooks'
+import { useTranslation } from '@/utility/translation'
 
 // Typescript
 import type { MouseEvent, ReactNode, ReactElement, MouseEventHandler } from 'react'

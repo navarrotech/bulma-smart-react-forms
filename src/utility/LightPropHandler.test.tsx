@@ -6,7 +6,7 @@ import { render, screen } from '@testing-library/react'
 import { describe, expect, it, afterEach, vi } from 'vitest'
 
 // Library to test
-import * as hooks from './hooks'
+import * as translationHooks from '@/utility/translation'
 import { LightPropHandler } from './LightPropHandler'
 
 describe('useColorful', () => {
@@ -44,7 +44,7 @@ describe('useColorful', () => {
 
   it('should translate the children', () => {
     const mock = vi
-      .spyOn(hooks, 'useTranslation')
+      .spyOn(translationHooks, 'useTranslation')
       .mockReturnValue({
         language: 'en',
         translate: (text: string) => {
@@ -73,7 +73,7 @@ describe('useColorful', () => {
 
   it('should translate the title', () => {
     const mock = vi
-      .spyOn(hooks, 'useTranslation')
+      .spyOn(translationHooks, 'useTranslation')
       .mockReturnValue({
         language: 'en',
         translate: (text: string) => {

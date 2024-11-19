@@ -14,7 +14,8 @@ import { Button } from '@/elements/Button'
 import { ErrorBoundary } from '@/navarrotech/ErrorBoundary'
 
 // Misc
-import { useHotkey, useTranslation } from '@/utility/hooks'
+import { useTranslation } from '@/utility/translation'
+import { useHotkey } from '@/utility/hooks'
 import { Delete } from '@/elements/Delete'
 
 // Based on the Bulma modal
@@ -90,7 +91,9 @@ export function Modal(props: ModalProps) {
               </header>
               <section className='modal-card-body'>
                 <ErrorBoundary id={`modal-${props.id}-content`}>{
-                  props.children
+                  typeof props.children === 'string'
+                    ? <p>{props.children}</p>
+                    : props.children
                 }</ErrorBoundary>
               </section>
               <footer className='modal-card-foot buttons is-right'>{

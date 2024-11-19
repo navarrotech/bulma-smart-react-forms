@@ -2,7 +2,7 @@
 
 // Core
 import { createElement } from 'react'
-import { useTranslation } from '@/utility/hooks'
+import { useTranslation } from '@/utility/translation'
 import { omitProps } from './filters'
 
 // Typescript

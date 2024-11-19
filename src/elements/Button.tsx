@@ -11,7 +11,8 @@ import type { ColorfulProps } from '@/utility/color'
 // Utility
 import { useCallback } from 'react'
 import { useColorful } from '@/utility/color'
-import { useSize, useTranslation } from '@/utility/hooks'
+import { useTranslation } from '@/utility/translation'
+import { useSize } from '@/utility/hooks'
 
 // Misc
 import { Nothing } from '@/constants'

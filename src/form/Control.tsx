@@ -13,7 +13,7 @@ import { Help } from './Help'
 
 // Utility
 import { useSize } from '@/utility/hooks'
-import { useTranslation } from '@/utility/hooks'
+import { useTranslation } from '@/utility/translation'
 
 // Misc
 import { Nothing } from '@/constants'

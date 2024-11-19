@@ -2,7 +2,7 @@
 
 // Core
 import { LightPropHandler } from '@/utility/LightPropHandler'
-import { useTranslation } from '@/utility/hooks'
+import { useTranslation } from '@/utility/translation'
 
 // Typescript
 import type { IconDefinition, LanguageKeyOrText, LightProps } from '@/types'

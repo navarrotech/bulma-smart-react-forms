@@ -9,7 +9,7 @@ import type { ColorfulProps } from '@/utility/color'
 import type { ReactNode } from 'react'
 
 // Utility
-import { useTranslation } from '@/utility/hooks'
+import { useTranslation } from '@/utility/translation'
 import { useColorful } from '@/utility/color'
 
 // Misc

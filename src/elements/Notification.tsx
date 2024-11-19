@@ -9,7 +9,7 @@ import { Delete } from './Delete'
 
 // Misc
 import { ColorfulProps, useColorful } from '@/utility/color'
-import { useTranslation } from '@/utility/hooks'
+import { useTranslation } from '@/utility/translation'
 
 // This is a simple wrapper around the Bulma notification styles
 // https://bulma.io/documentation/elements/notification/
@@ -25,7 +25,7 @@ type RequiredAsChildren = {
 }
 
 type WithDelete = {
-  showDelete: true
+  showDelete: boolean
   onDelete: () => void
 }
 

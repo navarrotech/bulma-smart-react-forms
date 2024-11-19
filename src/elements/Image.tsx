@@ -2,7 +2,7 @@
 
 // Typescript
 import type { LightProps, AsLeftCenteredRight } from '@/types'
-import { useTranslation } from '@/utility/hooks'
+import { useTranslation } from '@/utility/translation'
 import { ImgHTMLAttributes } from 'react'
 
 // Documentation:

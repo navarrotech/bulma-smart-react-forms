@@ -2,7 +2,7 @@
 
 // Core
 import { useColorful } from '@/utility/color'
-import { useTranslation } from '@/utility/hooks'
+import { useTranslation } from '@/utility/translation'
 
 // Typescript
 import type { LanguageKeyOrText } from '@/types'

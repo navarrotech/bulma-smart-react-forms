@@ -2,7 +2,7 @@
 
 // Core
 import { createElement } from 'react'
-import { useTranslation } from '@/utility/hooks'
+import { useTranslation } from '@/utility/translation'
 
 // Types
 import type { BulmaTextSizes, LanguageKeyOrText } from '@/types'

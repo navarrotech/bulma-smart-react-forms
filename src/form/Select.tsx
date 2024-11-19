@@ -3,7 +3,7 @@
 // Core
 import { useColorful } from '@/utility/color'
 import { useSize } from '@/utility/hooks'
-import { useTranslation } from '@/utility/hooks'
+import { useTranslation } from '@/utility/translation'
 
 // Typescript
 import type { AsSize, LanguageKeyOrText, LightProps } from '@/types'

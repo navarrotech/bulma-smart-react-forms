@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from 'react'
 // Typescript
 import type { ReactNode } from 'react'
 import type { LanguageFunction, StandardProps } from '@/types'
-import { useTranslation } from '@/utility/hooks'
+import { useTranslation } from '@/utility/translation'
 
 // Documentation:
 // https://bulma.io/documentation/components/dropdown/

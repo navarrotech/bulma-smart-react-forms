@@ -18,7 +18,7 @@ import type { ColorfulProps } from '@/utility/color'
 import { Control } from './Control'
 
 // Utility
-import { useTranslation } from '@/utility/hooks'
+import { useTranslation } from '@/utility/translation'
 import { useColorful } from '@/utility/color'
 import { useSize } from '@/utility/hooks'
 import { omitProps } from '@/utility/filters'

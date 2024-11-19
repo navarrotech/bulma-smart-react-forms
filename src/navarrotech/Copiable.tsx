@@ -1,7 +1,7 @@
 // Copyright © 2024 Navarrotech
 
 // Utility
-import { useTranslation } from '@/utility/hooks'
+import { useTranslation } from '@/utility/translation'
 
 // Typescript
 import type { StandardProps, LanguageKeyOrText } from '@/types'

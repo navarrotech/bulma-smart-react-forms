@@ -2,8 +2,8 @@
 
 // Core
 import { LightPropHandler } from '@/utility/LightPropHandler'
-import { useTranslation } from '@/utility/hooks'
 import { useSize, useLeftCenteredRight } from '@/utility/hooks'
+import { useTranslation } from '@/utility/translation'
 
 // Typescript
 import type { LightProps, AsSize, AsLeftCenteredRight, LanguageKeyOrText } from '@/types'

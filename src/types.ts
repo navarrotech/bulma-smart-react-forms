@@ -53,6 +53,10 @@ export type InputTypeAttribute =
   | 'url'
   | 'week'
 
+// Common
+export type SetTimeout = ReturnType<typeof setTimeout>
+export type SetInterval = ReturnType<typeof setInterval>
+
 // Language
 export type LanguageKeyOrText = string
 export type LanguageFunction = (keyOrText: LanguageKeyOrText) => string

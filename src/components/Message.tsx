@@ -2,8 +2,9 @@
 
 // Core
 import { LightPropHandler } from '@/utility/LightPropHandler'
+import { useTranslation } from '@/utility/translation'
 import { useColorful } from '@/utility/color'
-import { useSize, useTranslation } from '@/utility/hooks'
+import { useSize } from '@/utility/hooks'
 
 // Typescript
 import type { LightProps, ChildProps, AsSize } from '@/types'
@@ -16,7 +17,7 @@ import { Delete } from '@/elements/Delete'
 import { Nothing } from '@/constants'
 
 type WithDelete = {
-  showDelete: true
+  showDelete: boolean
   onDelete: () => void
 }
 
