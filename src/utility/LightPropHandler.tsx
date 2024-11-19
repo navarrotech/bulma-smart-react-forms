@@ -16,18 +16,19 @@ export type LightPropHandlerProps =
   & ChildProps
   & {
     rootClassname: string
+    omit?: string[]
     // Allows you to specify a tag like 'div', 'span', etc:
     as?: keyof JSX.IntrinsicElements
   }
   & Record<string, unknown>
 
-export function LightPropHandler({ rootClassname, ...props }: LightPropHandlerProps) {
+export function LightPropHandler({ rootClassname, omit = [], ...props }: LightPropHandlerProps) {
   const { translate, } = useTranslation()
 
   return createElement(
     props.as || 'div',
     {
-      ...omitProps(props),
+      ...omitProps(props, omit),
       title: translate(props.title),
       className: `${rootClassname} ${props.className}`,
     },

@@ -1,6 +1,6 @@
 // Copyright © 2024 Navarrotech
 
-import type { ReactNode, CSSProperties, MouseEventHandler, HTMLAttributes } from 'react'
+import type { ReactNode, CSSProperties, MouseEventHandler } from 'react'
 import type { AnyObjectSchema } from 'yup'
 import type { Yup } from './utility/validators'
 
@@ -28,6 +28,31 @@ export type BulmaTextSizes =
   | 6
   | 7
 
+// Why does typescript not already provide this?
+export type InputTypeAttribute =
+  | 'button'
+  | 'checkbox'
+  | 'color'
+  | 'date'
+  | 'datetime-local'
+  | 'email'
+  | 'file'
+  | 'hidden'
+  | 'image'
+  | 'month'
+  | 'number'
+  | 'password'
+  | 'radio'
+  | 'range'
+  | 'reset'
+  | 'search'
+  | 'submit'
+  | 'tel'
+  | 'text'
+  | 'time'
+  | 'url'
+  | 'week'
+
 // Language
 export type LanguageKeyOrText = string
 export type LanguageFunction = (keyOrText: LanguageKeyOrText) => string
@@ -46,12 +71,12 @@ export type ChildProps = {
   children: ReactNode
 }
 
-export type LightProps<RootType = HTMLAttributes<HTMLElement>> = {
+export type LightProps = {
   id?: string
   title?: LanguageKeyOrText
   className?: string
   style?: CSSProperties
-} & RootType
+}
 
 export type StandardProps = LightProps & {
   onClick?: MouseEventHandler<HTMLElement>

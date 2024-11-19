@@ -39,7 +39,7 @@ export type ColorfulProps = (asColor | AsExact) & {
   style?: CSSProperties
 }
 
-export function useColorful(props: ColorfulProps): ColorfulType {
+export function getColorful(props: ColorfulProps): ColorfulType {
   let { className = '', style={}, } = props
 
   const colors = [
@@ -91,4 +91,8 @@ export function useColorful(props: ColorfulProps): ColorfulType {
     className,
     style,
   } as ColorfulType
+}
+
+export function useColorful(props: ColorfulProps): ColorfulType {
+  return getColorful(props)
 }
