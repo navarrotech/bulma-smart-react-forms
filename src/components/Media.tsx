@@ -4,8 +4,7 @@
 import { LightPropHandler } from '@/utility/LightPropHandler'
 
 // Typescript
-import type { ReactNode } from 'react'
-import type { LightProps } from '@/types'
+import type { ChildProps, LightProps } from '@/types'
 import type { ImageProps } from '@/elements/Image'
 import type { TitlesProps } from '@/elements/Titles'
 
@@ -15,11 +14,11 @@ import { Titles } from '@/elements/Titles'
 
 type Props =
   & LightProps
+  & ChildProps
   & {
     image?: ImageProps
     titles?: TitlesProps
     as?: keyof JSX.IntrinsicElements
-    children?: ReactNode
   }
   & Record<string, unknown>
 
