@@ -1,4 +1,4 @@
-/* Copyright © 2024 Navarrotech */
+/* Copyright © 2025 Navarrotech */
 import { ComponentType } from 'react';
 import { LanguageFunction } from './types';
 export declare class BulmaFormSettings {

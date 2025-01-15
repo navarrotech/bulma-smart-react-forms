@@ -1,4 +1,4 @@
-/* Copyright © 2024 Navarrotech */
+/* Copyright © 2025 Navarrotech */
 import { ReactNode, ReactElement, MouseEventHandler } from 'react';
 import { LightProps, ChildProps, LanguageKeyOrText } from '../types';
 import { NavbarItem } from './NavbarItem';

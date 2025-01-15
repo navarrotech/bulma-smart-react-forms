@@ -1,9 +1,12 @@
-/* Copyright © 2024 Navarrotech */
-import { ReactNode, CSSProperties, MouseEventHandler, HTMLAttributes } from 'react';
+/* Copyright © 2025 Navarrotech */
+import { ReactNode, CSSProperties, MouseEventHandler } from 'react';
 import { AnyObjectSchema } from 'yup';
 import { Yup } from './utility/validators';
 export type BulmaColor = 'primary' | 'secondary' | 'link' | 'info' | 'success' | 'warning' | 'danger' | 'white' | 'black' | 'text' | 'ghost' | string;
 export type BulmaTextSizes = 1 | 2 | 3 | 4 | 5 | 6 | 7;
+export type InputTypeAttribute = 'button' | 'checkbox' | 'color' | 'date' | 'datetime-local' | 'email' | 'file' | 'hidden' | 'image' | 'month' | 'number' | 'password' | 'radio' | 'range' | 'reset' | 'search' | 'submit' | 'tel' | 'text' | 'time' | 'url' | 'week';
+export type SetTimeout = ReturnType<typeof setTimeout>;
+export type SetInterval = ReturnType<typeof setInterval>;
 export type LanguageKeyOrText = string;
 export type LanguageFunction = (keyOrText: LanguageKeyOrText) => string;
 export type OptionalNever<T> = {
@@ -14,12 +17,12 @@ export type IconDefinition = string | ReactNode;
 export type ChildProps = {
     children: ReactNode;
 };
-export type LightProps<RootType = HTMLAttributes<HTMLElement>> = {
+export type LightProps = {
     id?: string;
     title?: LanguageKeyOrText;
     className?: string;
     style?: CSSProperties;
-} & RootType;
+};
 export type StandardProps = LightProps & {
     onClick?: MouseEventHandler<HTMLElement>;
     fullwidth?: boolean;

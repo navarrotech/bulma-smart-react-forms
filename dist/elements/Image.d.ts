@@ -1,4 +1,4 @@
-/* Copyright © 2024 Navarrotech */
+/* Copyright © 2025 Navarrotech */
 import { LightProps, AsLeftCenteredRight } from '../types';
 import { ImgHTMLAttributes } from 'react';
 type AsPresetSize = {

@@ -1,4 +1,4 @@
-/* Copyright © 2024 Navarrotech */
+/* Copyright © 2025 Navarrotech */
 import { MouseEventHandler } from 'react';
 import { LightProps, ChildProps } from '../types';
 export type NavbarItemProps = LightProps & ChildProps & {

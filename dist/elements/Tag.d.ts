@@ -1,4 +1,4 @@
-/* Copyright © 2024 Navarrotech */
+/* Copyright © 2025 Navarrotech */
 import { LightProps, AsSize } from '../types';
 import { ColorfulProps } from '../utility/color';
 import { ReactNode } from 'react';

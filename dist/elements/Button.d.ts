@@ -1,4 +1,4 @@
-/* Copyright © 2024 Navarrotech */
+/* Copyright © 2025 Navarrotech */
 import { ReactNode } from 'react';
 import { AsSize, IconDefinition, LanguageKeyOrText, StandardProps } from '../types';
 import { ColorfulProps } from '../utility/color';

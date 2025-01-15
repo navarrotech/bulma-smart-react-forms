@@ -1,13 +1,11 @@
-/* Copyright © 2024 Navarrotech */
-import { ReactNode } from 'react';
-import { LightProps } from '../types';
+/* Copyright © 2025 Navarrotech */
+import { ChildProps, LightProps } from '../types';
 import { ImageProps } from '../elements/Image';
 import { TitlesProps } from '../elements/Titles';
-type Props = LightProps & {
+type Props = LightProps & ChildProps & {
     image?: ImageProps;
     titles?: TitlesProps;
     as?: keyof JSX.IntrinsicElements;
-    children?: ReactNode;
 } & Record<string, unknown>;
 export declare function Media(props: Props): import("react/jsx-runtime").JSX.Element;
 export {};

@@ -30,6 +30,7 @@ export function LightPropHandler({ rootClassname, omit = [], ...props }: LightPr
     {
       ...omitProps(props, omit),
       title: translate(props.title),
+      // TODO: What if props.className is undefined?
       className: `${rootClassname} ${props.className}`,
     },
     typeof props.children === 'string'

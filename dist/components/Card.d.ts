@@ -1,4 +1,4 @@
-/* Copyright © 2024 Navarrotech */
+/* Copyright © 2025 Navarrotech */
 import { IconDefinition, LanguageKeyOrText, LightProps } from '../types';
 import { ImageProps } from '../elements/Image';
 import { ReactNode } from 'react';

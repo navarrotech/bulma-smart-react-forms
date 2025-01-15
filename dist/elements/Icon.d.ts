@@ -1,4 +1,4 @@
-/* Copyright © 2024 Navarrotech */
+/* Copyright © 2025 Navarrotech */
 import { BulmaColor, IconDefinition, LightProps, AsSize } from '../types';
 type Props = LightProps & AsSize & {
     color?: BulmaColor;

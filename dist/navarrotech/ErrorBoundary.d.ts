@@ -1,4 +1,4 @@
-/* Copyright © 2024 Navarrotech */
+/* Copyright © 2025 Navarrotech */
 import { Component, ReactNode } from 'react';
 type ErrorProps = {
     id: string;

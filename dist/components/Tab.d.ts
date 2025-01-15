@@ -1,4 +1,4 @@
-/* Copyright © 2024 Navarrotech */
+/* Copyright © 2025 Navarrotech */
 import { MouseEventHandler, ReactNode } from 'react';
 import { LightProps, ChildProps, IconDefinition, LanguageKeyOrText } from '../types';
 type AsChildren = {

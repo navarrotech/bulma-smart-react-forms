@@ -1,8 +1,8 @@
-/* Copyright © 2024 Navarrotech */
+/* Copyright © 2025 Navarrotech */
 import { LightProps, ChildProps, AsSize } from '../types';
 import { ColorfulProps } from '../utility/color';
 type WithDelete = {
-    showDelete: true;
+    showDelete: boolean;
     onDelete: () => void;
 };
 type WithoutDelete = {

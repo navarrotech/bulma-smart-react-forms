@@ -1,4 +1,4 @@
-/* Copyright © 2024 Navarrotech */
+/* Copyright © 2025 Navarrotech */
 import { LightProps, AsSize, AsLeftCenteredRight, LanguageKeyOrText } from '../types';
 type TranslationCallbackWithPage = (page: number) => string;
 type PageInformation = {

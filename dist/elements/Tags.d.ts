@@ -1,4 +1,4 @@
-/* Copyright © 2024 Navarrotech */
+/* Copyright © 2025 Navarrotech */
 import { LightProps, ChildProps, AsSize, OptionalNever } from '../types';
 type Props = (({
     singleLine?: false;

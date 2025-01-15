@@ -1,4 +1,4 @@
-/* Copyright © 2024 Navarrotech */
+/* Copyright © 2025 Navarrotech */
 import { CSSProperties } from 'react';
 import { BulmaColor, ColorfulType } from '../types';
 type AsExact = {
@@ -33,5 +33,6 @@ export type ColorfulProps = (asColor | AsExact) & {
     className?: string;
     style?: CSSProperties;
 };
+export declare function getColorful(props: ColorfulProps): ColorfulType;
 export declare function useColorful(props: ColorfulProps): ColorfulType;
 export {};

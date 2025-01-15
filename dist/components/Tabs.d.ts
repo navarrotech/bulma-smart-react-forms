@@ -1,4 +1,4 @@
-/* Copyright © 2024 Navarrotech */
+/* Copyright © 2025 Navarrotech */
 import { MouseEvent, ReactNode } from 'react';
 import { LightProps, AsLeftCenteredRight, AsSize } from '../types';
 import { TabProps } from './Tab';

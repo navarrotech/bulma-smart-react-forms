@@ -1,4 +1,4 @@
-/* Copyright © 2024 Navarrotech */
+/* Copyright © 2025 Navarrotech */
 import { Component } from 'react';
 import { ValidatorProp } from './types';
 type DEFAULT_SCHEMA = Record<string, any>;

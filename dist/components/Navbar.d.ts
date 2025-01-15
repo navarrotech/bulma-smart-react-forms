@@ -1,4 +1,4 @@
-/* Copyright © 2024 Navarrotech */
+/* Copyright © 2025 Navarrotech */
 import { ReactNode, ReactElement } from 'react';
 import { LightProps, ChildProps } from '../types';
 import { NavbarItem } from './NavbarItem';

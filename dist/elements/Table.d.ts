@@ -1,4 +1,4 @@
-/* Copyright © 2024 Navarrotech */
+/* Copyright © 2025 Navarrotech */
 import { LightProps, ChildProps } from '../types';
 type Props = LightProps & ChildProps & {
     scrollable?: boolean;

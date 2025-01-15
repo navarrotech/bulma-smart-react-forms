@@ -1,4 +1,4 @@
-/* Copyright © 2024 Navarrotech */
+/* Copyright © 2025 Navarrotech */
 import { BulmaTextSizes, LanguageKeyOrText } from '../types';
 import { HTMLAttributes } from 'react';
 export type TitlesProps = {

@@ -1,4 +1,4 @@
-/* Copyright © 2024 Navarrotech */
+/* Copyright © 2025 Navarrotech */
 import { StandardProps, LanguageKeyOrText } from '../types';
 import { ReactNode } from 'react';
 type asRightClick = {

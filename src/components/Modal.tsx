@@ -52,11 +52,16 @@ export function Modal(props: ModalProps) {
   const { translate, } = useTranslation()
 
   // Keyboard listener to close the modal on the 'escape' key
-  useHotkey('escape', () => {
-    if (props.show) {
-      props.onClose()
-    }
-  }, null, !!props.disableEscapeKeyToClose)
+  useHotkey(
+    'escape',
+    () => {
+      if (props.show) {
+        props.onClose()
+      }
+    },
+    [],
+    !!props.disableEscapeKeyToClose,
+  )
 
   if (!props.show || props.disabled) {
     return <></>
