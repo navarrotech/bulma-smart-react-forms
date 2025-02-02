@@ -20,6 +20,7 @@ export const standardPropsToOmitBeforeSpread = [
   'outlined',
   'loading',
   'selected',
+  'iconSize',
   // Positions
   'left',
   'right',

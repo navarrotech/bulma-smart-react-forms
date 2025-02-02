@@ -20,7 +20,7 @@ export class BulmaFormSettings {
 
   public static translationFunction: LanguageFunction = DEFAULT_TRANSLATION_FUNCTION
   private static language: string = ''
-  private static events: EventEmitter<EventMap> = new EventEmitter()
+  public static events: EventEmitter<EventMap> = new EventEmitter()
 
   public static changeLanguage(newLanguage: string) {
     this.language = newLanguage
@@ -45,3 +45,5 @@ export class BulmaFormSettings {
   public static CustomModalParentElement: HTMLElement
     = document.getElementById('body') as HTMLElement
 }
+
+BulmaFormSettings.events.setMaxListeners(Infinity)

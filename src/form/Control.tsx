@@ -29,6 +29,7 @@ export type ControlProps =
       | HelpProps
       | HelpProps[]
       | ReactNode
+    error?: string | string[]
     icon?: IconDefinition,
     iconRight?: IconDefinition,
     fullwidth?: boolean
@@ -118,6 +119,20 @@ export function Control({ children, ...props }: ControlProps) {
               }</p>
       }</>
       : Nothing
+    }
+    {
+      props.error
+        ? <>
+          <p className='help is-danger'>{
+            props.error instanceof Array
+              ? props.error.map((item, index) => <>
+                <span>{ translate(item) }</span>
+                { index !== props.error.length - 1 && <br /> }
+              </>)
+              : translate(props.error)
+          }</p>
+        </>
+        : Nothing
     }
   </>
 }

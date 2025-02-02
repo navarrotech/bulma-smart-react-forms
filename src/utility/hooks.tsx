@@ -11,6 +11,7 @@ export function useHotkey(
   callback: () => void,
   deps: any[] = [],
   disabled = false,
+  allowPropogation = false,
 ) {
   useEffect(() => {
     if (disabled) {
@@ -18,11 +19,13 @@ export function useHotkey(
     }
 
     const handler = (event: KeyboardEvent) => {
-      event.preventDefault?.()
-      event.stopPropagation?.()
-      event.stopImmediatePropagation?.()
       if (event.key !== key) {
         return
+      }
+      if (!allowPropogation) {
+        event.preventDefault?.()
+        event.stopPropagation?.()
+        event.stopImmediatePropagation?.()
       }
       callback()
     }

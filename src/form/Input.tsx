@@ -62,6 +62,8 @@ export type InputProps =
     static?: boolean
 
     // Smart stuff
+    showErrorWhileEmpty?: boolean
+    errorMessage?: string | string[]
     // showClearButton?: boolean
 
     // Style
@@ -108,7 +110,7 @@ const inputOmitProps: string[] = [
 
 export function Input(props: InputProps) {
   const { translate, } = useTranslation()
-  const sizeClass = useSize(props.size)
+  const sizeClass = useSize(props)
 
   const { className: colorfulClass, style, } = useColorful(props)
 
@@ -137,6 +139,8 @@ export function Input(props: InputProps) {
     iconRight={props.iconRight}
     label={props.label}
     help={props.help}
+    // Only show an error if the value is not empty, OR if showErrorWhileEmpty is true
+    error={(props.showErrorWhileEmpty || !!props.value) ? props.errorMessage : undefined}
     fullwidth={props.fullwidth}
     loading={props.loading}
     small={props.small}
@@ -156,8 +160,8 @@ export function Input(props: InputProps) {
       createElement(
         // Tag name
         props.textarea
-          ? 'input'
-          : 'textarea',
+          ? 'textarea'
+          : 'input',
         // Props
         {
           ...omitProps(props as any, inputOmitProps),
