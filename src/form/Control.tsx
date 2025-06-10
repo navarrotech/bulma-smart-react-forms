@@ -25,10 +25,10 @@ export type ControlProps =
   & {
     label?: LanguageKeyOrText
     help?: LanguageKeyOrText
-      | LanguageKeyOrText[]
-      | HelpProps
-      | HelpProps[]
-      | ReactNode
+    | LanguageKeyOrText[]
+    | HelpProps
+    | HelpProps[]
+    | ReactNode
     error?: string | string[]
     icon?: IconDefinition,
     iconRight?: IconDefinition,
@@ -38,14 +38,6 @@ export type ControlProps =
     iconSize?: 'small' | 'medium' | 'large'
   }
   & Record<string, unknown>
-
-const controlOmissions: string[] = [
-  'label',
-  'help',
-  'icon',
-  'iconRight',
-  'expanded',
-] as const
 
 export function Control({ children, ...props }: ControlProps) {
   const { translate, } = useTranslation()
@@ -62,19 +54,18 @@ export function Control({ children, ...props }: ControlProps) {
   ].filter(Boolean).join(' ')
 
   return <>
-    { props.label
+    {props.label
       ? <label className='label'>{
         translate(props.label)
       }</label>
       : Nothing
     }
     <LightPropHandler
-      { ...props }
+      {...props}
       rootClassname='control'
       className={classes}
-      omit={controlOmissions}
     >
-      { props.icon
+      {props.icon
         ? <span
           className={`icon is-${props.iconSize || 'small'} is-left`}
         >{
@@ -82,8 +73,8 @@ export function Control({ children, ...props }: ControlProps) {
           }</span>
         : Nothing
       }
-      { children }
-      { props.iconRight
+      {children}
+      {props.iconRight
         ? <span
           className={`icon is-${props.iconSize || 'small'} is-right`}
         >{
@@ -92,7 +83,7 @@ export function Control({ children, ...props }: ControlProps) {
         : Nothing
       }
     </LightPropHandler>
-    { props.help
+    {props.help
       ? <>{
         Array.isArray(props.help)
           ? props.help.map((item) => {
@@ -103,13 +94,13 @@ export function Control({ children, ...props }: ControlProps) {
             }
 
             if (item.text) {
-              return <Help key={item.text} { ...item } />
+              return <Help key={item.text} {...item} />
             }
 
             return item as unknown as ReactNode
           })
           : (props.help as HelpProps)?.text
-            ? <Help { ...props.help as HelpProps } />
+            ? <Help {...props.help as HelpProps} />
             : typeof props.help === 'string'
               ? <p className='help'>{
                 translate(props.help)
@@ -126,8 +117,8 @@ export function Control({ children, ...props }: ControlProps) {
           <p className='help is-danger'>{
             props.error instanceof Array
               ? props.error.map((item, index) => <>
-                <span>{ translate(item) }</span>
-                { index !== props.error.length - 1 && <br /> }
+                <span>{translate(item)}</span>
+                {index !== props.error.length - 1 && <br />}
               </>)
               : translate(props.error)
           }</p>

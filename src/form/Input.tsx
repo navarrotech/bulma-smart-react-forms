@@ -94,20 +94,6 @@ export type InputProps =
   }
   & Record<string, unknown>
 
-const inputOmitProps: string[] = [
-  'textarea',
-  'icon',
-  'iconRight',
-  'label',
-  'help',
-  'active',
-  'hovered',
-  'focused',
-  'loading',
-  'readonly',
-  'static',
-] as const
-
 export function Input(props: InputProps) {
   const { translate, } = useTranslation()
   const sizeClass = useSize(props)
@@ -164,12 +150,12 @@ export function Input(props: InputProps) {
           : 'input',
         // Props
         {
-          ...omitProps(props as any, inputOmitProps),
+          ...omitProps(props as any),
           id: props.id,
           className: classes,
           name: translate(props.name),
           placeholder: translate(props.placeholder),
-          onClick: !disabled && props.onClick,
+          onClick: !disabled && props.onClick || undefined,
           onChange: !disabled && ((event: MouseEvent<HTMLInputElement>) => {
             if (props.type === 'number') {
               props.onChange?.({
@@ -181,7 +167,7 @@ export function Input(props: InputProps) {
                 value: event.currentTarget.value,
               }, event)
             }
-          }),
+          }) || undefined,
           onKeyDown: !disabled && ((event: KeyboardEvent<HTMLInputElement>) => {
             if (event.key === 'Escape') {
               event.preventDefault()
@@ -192,7 +178,7 @@ export function Input(props: InputProps) {
               props.onEnter?.(event)
             }
             props.onKeyDown?.(event)
-          }),
+          }) || undefined,
           style,
         },
       )

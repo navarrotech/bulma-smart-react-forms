@@ -71,15 +71,6 @@ type AsFullHeightWithNavbar = {
 
 type AsSize = (AsSmall | AsMedium | AsLarge | AsHalfHeight | AsFullHeight | AsFullHeightWithNavbar)
 
-const HeroPropsToOmit: string[] = [
-  'small',
-  'medium',
-  'large',
-  'halfHeight',
-  'fullHeight',
-  'fullHeightWithNavbar',
-] as const
-
 export type HeroProps =
   & LightProps
   & ChildProps
@@ -109,15 +100,14 @@ export function Hero(props: HeroProps) {
   ].filter(Boolean).join(' ')
 
   return <LightPropHandler
-    { ...props }
+    {...props}
     rootClassname='hero'
     className={classes}
     style={style}
-    omit={HeroPropsToOmit}
     as={props.as || 'section'}
   >
-    { props.header
-      ? <div className='hero-head'>{ props.header }</div>
+    {props.header
+      ? <div className='hero-head'>{props.header}</div>
       : Nothing
     }
     <div className='hero-body'>{
@@ -125,8 +115,8 @@ export function Hero(props: HeroProps) {
         ? translate(props.children)
         : props.children
     }</div>
-    { props.footer
-      ? <div className='hero-foot'>{ props.footer }</div>
+    {props.footer
+      ? <div className='hero-foot'>{props.footer}</div>
       : Nothing
     }
   </LightPropHandler>

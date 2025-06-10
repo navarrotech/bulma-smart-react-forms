@@ -25,11 +25,6 @@ type LevelProps =
   }
   & Record<string, unknown>
 
-const levelPropsOmitted: string[] = [
-  'mobile',
-  'items',
-] as const
-
 export function Level(props: LevelProps) {
   // Template, otherwise LightPropHandler will do this for you
   const classes = [
@@ -40,21 +35,20 @@ export function Level(props: LevelProps) {
   ].filter(Boolean).join(' ')
 
   return <LightPropHandler
-    { ...props }
+    {...props}
     rootClassname='CHANGE_ME'
     className={classes}
-    omit={levelPropsOmitted}
     as={props.as || 'div'}
   >
-    { props.left !== undefined && props.left !== true
+    {props.left !== undefined && props.left !== true
       ? <div className='level-left'>{
         props.left
       }</div>
       : Nothing
     }
-    { props.children || Nothing }
-    { props.items?.map((item, index) => <LevelItem key={index}>{ item }</LevelItem>) || Nothing }
-    { props.right !== undefined && props.right !== true
+    {props.children || Nothing}
+    {props.items?.map((item, index) => <LevelItem key={index}>{item}</LevelItem>) || Nothing}
+    {props.right !== undefined && props.right !== true
       ? <div className='level-right'>{
         props.right
       }</div>

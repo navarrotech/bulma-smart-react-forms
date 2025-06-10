@@ -71,15 +71,6 @@ export type ContainerProps =
   }
   & Record<string, unknown>
 
-const ContainerOmittedProps: string[] = [
-  'fluid',
-  'widescreen',
-  'maxWidescreen',
-  'fullhd',
-  'desktop',
-  'tablet',
-] as const
-
 export function Container(props: ContainerProps) {
   // Template, otherwise LightPropHandler will do this for you
   const classes = [
@@ -93,8 +84,7 @@ export function Container(props: ContainerProps) {
   ].filter(Boolean).join(' ')
 
   return <LightPropHandler
-    { ...props }
-    omit={ContainerOmittedProps}
+    {...props}
     rootClassname='container'
     className={classes}
   >{

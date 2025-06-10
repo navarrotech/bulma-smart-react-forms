@@ -14,10 +14,6 @@ export type LevelItemProps =
   }
   & Record<string, unknown>
 
-const levelItemPropsOmitted: string[] = [
-  'centered',
-] as const
-
 export function LevelItem(props: LevelItemProps) {
   // Template, otherwise LightPropHandler will do this for you
   const classes = [
@@ -26,10 +22,9 @@ export function LevelItem(props: LevelItemProps) {
   ].filter(Boolean).join(' ')
 
   return <LightPropHandler
-    { ...props }
+    {...props}
     rootClassname='CHANGE_ME'
     className={classes}
-    omit={levelItemPropsOmitted}
     as='div'
   >{
       props.children
