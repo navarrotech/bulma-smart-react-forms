@@ -14,8 +14,35 @@
 .toast
   min-width: 20em
   max-width: 20em
+  padding: 1em
+  border-radius: 0.5em
   opacity: 1
   transition: transform 300ms ease, opacity 300ms ease
+
+  &.is-primary
+    background: $primary
+  &.is-link
+    background: $link
+  &.is-info
+    background: $info
+  &.is-success
+    background: $success
+  &.is-warning
+    background: $warning
+  &.is-danger
+    background: $danger
+  &.is-dark
+    background: $base
+  &.is-light
+    background: $light !important
+  &.is-white
+    background: white !important
+  &.is-black
+    background: black !important
+
+  .delete
+    display: inline-block
+    float: right
 
   p
     // This is regardless of the theme

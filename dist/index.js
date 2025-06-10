@@ -261,6 +261,7 @@ F(z, "translationFunction", ii), F(z, "language", ""), F(z, "events", new dt()),
 //    Targets and defaults    //
 // ////////////////////////// //
 F(z, "CustomErrorBoundary", null), F(z, "CustomModalParentElement", document.getElementById("body"));
+z.events.setMaxListeners(1 / 0);
 var it = { exports: {} }, we = {};
 /**
  * @license React
@@ -2845,7 +2846,10 @@ function mr({ children: e, ...t }) {
       }
     ),
     t.help ? /* @__PURE__ */ a.jsx(a.Fragment, { children: Array.isArray(t.help) ? t.help.map((o) => typeof o == "string" ? /* @__PURE__ */ a.jsx("p", { className: "help", children: n(o) }, o) : o.text ? /* @__PURE__ */ a.jsx(Nn, { ...o }, o.text) : o) : (l = t.help) != null && l.text ? /* @__PURE__ */ a.jsx(Nn, { ...t.help }) : typeof t.help == "string" ? /* @__PURE__ */ a.jsx("p", { className: "help", children: n(t.help) }) : /* @__PURE__ */ a.jsx("p", { className: "help", children: t.help }) }) : b,
-    t.error ? /* @__PURE__ */ a.jsx(a.Fragment, { children: /* @__PURE__ */ a.jsx("p", { className: "help is-danger", children: t.error }) }) : b
+    t.error ? /* @__PURE__ */ a.jsx(a.Fragment, { children: /* @__PURE__ */ a.jsx("p", { className: "help is-danger", children: t.error instanceof Array ? t.error.map((o, c) => /* @__PURE__ */ a.jsxs(a.Fragment, { children: [
+      /* @__PURE__ */ a.jsx("span", { children: n(o) }),
+      c !== t.error.length - 1 && /* @__PURE__ */ a.jsx("br", {})
+    ] })) : n(t.error) }) }) : b
   ] });
 }
 const Vl = [
@@ -3380,13 +3384,13 @@ const V = class V extends Se {
       id: this.props.deleteButtonId || "confirm-delete-button",
       text: t.confirmText || this.props.defaultDeleteButtonText || "Delete",
       icon: this.props.deleteButtonIcon,
-      onClick: this.onConfirm
+      onClick: () => this.onConfirm()
     }) : n.push({
       color: t.isDelete ? "danger" : "primary",
       id: this.props.confirmButtonId || "confirm-confirm-button",
       text: t.confirmText || this.props.defaultConfirmButtonText || "Confirm",
       icon: this.props.confirmButtonIcon,
-      onClick: this.onConfirm
+      onClick: () => this.onConfirm()
     }), n;
   }
   onClose() {
@@ -3394,7 +3398,7 @@ const V = class V extends Se {
   }
   onConfirm() {
     var t;
-    this.setState({ confirm: null }), (t = this.state.confirm) == null || t.successCallback();
+    (t = this.state.confirm) == null || t.successCallback(), this.setState({ confirm: null });
   }
   render() {
     var t, n;

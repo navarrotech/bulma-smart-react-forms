@@ -26,7 +26,7 @@ export type InputProps = Omit<StandardProps, 'onChange'> & ColorfulProps & AsSiz
     readonly?: boolean;
     static?: boolean;
     showErrorWhileEmpty?: boolean;
-    errorMessage?: string;
+    errorMessage?: string | string[];
     name?: LanguageKeyOrText;
     placeholder?: LanguageKeyOrText;
     icon?: IconDefinition;

@@ -1,7 +1,7 @@
 {
   "name": "bulma-smart-react-forms",
   "description": "A lightweight collection of Bulma elements as React components, with built in validators, error handlers, and a smart form",
-  "version": "0.0.7-alpha",
+  "version": "0.0.9-alpha",
   "author": {
     "name": "Alex Navarro",
     "email": "alex@navarrotech.net",
@@ -46,10 +46,6 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives",
     "clean": "rm -rf dist && rm -rf node_modules",
     "reinstall": "yarn clean && yarn install"
-  },
-  "engines": {
-    "node": ">=20.11.0",
-    "yarn": ">=1.22.0"
   },
   "dependencies": {
     "events": "^3.3.0",

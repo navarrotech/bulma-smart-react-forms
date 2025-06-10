@@ -34,7 +34,7 @@ type AsShow = {
 }
 
 type ModalProps =
-  & (AsTrigger | AsShow)
+  & (AsTrigger | AsShow) // TODO: <-- this is broken, trigger doesn't work and isn't typed well
   & StandardProps
   & {
     // Required:

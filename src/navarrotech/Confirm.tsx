@@ -114,7 +114,7 @@ export class ConfirmRoot extends Component<ConfirmRootProps, ConfirmRootState> {
         id: this.props.deleteButtonId || 'confirm-delete-button',
         text: confirm.confirmText || this.props.defaultDeleteButtonText || 'Delete',
         icon: this.props.deleteButtonIcon,
-        onClick: this.onConfirm,
+        onClick: () => this.onConfirm(),
       })
     }
     else {
@@ -125,7 +125,7 @@ export class ConfirmRoot extends Component<ConfirmRootProps, ConfirmRootState> {
         id: this.props.confirmButtonId || 'confirm-confirm-button',
         text: confirm.confirmText || this.props.defaultConfirmButtonText || 'Confirm',
         icon: this.props.confirmButtonIcon,
-        onClick: this.onConfirm,
+        onClick: () => this.onConfirm(),
       })
     }
 
@@ -137,8 +137,8 @@ export class ConfirmRoot extends Component<ConfirmRootProps, ConfirmRootState> {
   }
 
   private onConfirm() {
-    this.setState({ confirm: null, })
     this.state.confirm?.successCallback()
+    this.setState({ confirm: null, })
   }
 
   render() {

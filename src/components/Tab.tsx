@@ -42,20 +42,17 @@ export function Tab({ onClick, icon, ...props }: TabProps) {
     : Nothing
 
   return <LightPropHandler
-    { ...props }
+    {...props}
     rootClassname=''
     as='li'
   >
-  ? <a
-      onClick={onClick}
-    >
-      { iconElement }
-      { props.children
+    <a onClick={onClick}>
+      {iconElement}
+      {props.children
         || <span>{
           translate(props.text)
         }</span>
       }
     </a>
-    <a onClick={onClick}></a>
   </LightPropHandler>
 }

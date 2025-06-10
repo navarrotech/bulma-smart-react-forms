@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 export type ControlProps = LightProps & ChildProps & AsSize & {
     label?: LanguageKeyOrText;
     help?: LanguageKeyOrText | LanguageKeyOrText[] | HelpProps | HelpProps[] | ReactNode;
-    error?: string;
+    error?: string | string[];
     icon?: IconDefinition;
     iconRight?: IconDefinition;
     fullwidth?: boolean;
