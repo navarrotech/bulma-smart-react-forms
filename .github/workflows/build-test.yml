@@ -18,7 +18,7 @@ on:
 
 jobs:
   compile:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     container:
       image: node:20.11.0-bullseye-slim
